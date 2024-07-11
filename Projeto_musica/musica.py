@@ -1,12 +1,17 @@
 # Importando o flask para o projeto
-from flask import Flask
+from flask import Flask,render_template
 
 app = Flask(__name__)
 
-# Criando a rota da nossa aplicação:
-@app.route('/inicio')
-def hello():
-    return '<h1>Bem vindo a minha primeira aplicação flask</h1>' # Imprimindo um titulo
+@app.route('/musicas')
+def listarMusicas():
+
+    lista = ['Lobo - Guará','Terror da Previdencia','Vai e Chora']
 
 
-app.run()
+    return render_template('lista_musicas.html', 
+                           titulo = 'Aprendendo do inicio com Daniel.',
+                           musicas = lista)
+
+
+app.run(debug=True) # Agora o que for feito de alteração sera atualiazado automaticamente.
