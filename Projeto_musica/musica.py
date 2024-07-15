@@ -1,5 +1,5 @@
 # Importando o flask para o projeto
-from flask import Flask,render_template
+from flask import Flask,render_template, request
 
 # Vamos criar uma classe em python:
 class Musica:
@@ -8,6 +8,11 @@ class Musica:
         self.cantorBanda = cantorBandaGrupo
         self.genero = genero
 
+musica01 = Musica('Temporal','Hungria', 'Hip-Hop')
+musica02 = Musica('Papai Banca','MC Ryan SP', 'Funk')
+musica03 = Musica('Camisa 10', 'Turma do Pagode', 'Pagode')
+
+lista = [musica01, musica02, musica03]
 
 
 
@@ -16,15 +21,26 @@ app = Flask(__name__)
 @app.route('/musicas')
 def listarMusicas():
 
-    musica01 = Musica('Temporal','Hungria', 'Hip-Hop')
-    musica02 = Musica('Papai Banca','MC Ryan SP', 'Funk')
-    musica03 = Musica('Camisa 10', 'Turma do Pagode', 'Pagode')
-
-    lista = [musica01, musica02, musica03]
-
 
     return render_template('lista_musicas.html', 
                            titulo = 'Aprendendo do inicio com Daniel.',
+                           musicas = lista)
+
+@app.route('/cadastrar')
+def cadastrar_musica():
+    return render_template('cadastra_musica.html')
+
+@app.route('/adicionar', methods=['POST',])
+def adicionar_musica():
+    nome = request.form['txtNome']
+    cantorBanda = request.form['txtCantor']
+    genero = request.form['txtGenero']
+
+    novaMusica = Musica(nome, cantorBanda, genero)
+
+    lista.append(novaMusica)
+    return render_template('lista_musicas.html',
+                           tiutlo = 'Apredendo do inicio com Daniel',
                            musicas = lista)
 
 

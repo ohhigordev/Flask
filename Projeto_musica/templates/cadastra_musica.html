@@ -5,20 +5,18 @@
     <title>Cadastar Música</title>
 </head>
 <body>
-    <form>
+    <form method="post" action="/adicionar">
         <label>Noma da Música:</label>
-        <input type="text">
+        <input type="text" name="txtNome">
 
         <label>Cantor / Grupo / Banda:</label>
-        <input type="text">
+        <input type="text" name="txtCantor">
 
         <label>Genero:</label>
-        <input type="text">
+        <input type="text" name="txtGenero">
 
         <button type="submit">Cadastrar</button>
     </form>
-
-
-    
+  
 </body>
 </html>
