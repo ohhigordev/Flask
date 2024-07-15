@@ -26,9 +26,9 @@
         {% for music in musicas %} <!-- Aqui comçamos um laço para adicionar as músicas ao HTML -->
         <tr>
             <!-- Já o comando 'td' são usados para células com dados normais -->
-            <td>{{ music}}</td>
-            <td></td>
-            <td></td>
+            <td>{{ music.nome}}</td>
+            <td>{{ music.cantorBanda }}</td>
+            <td>{{ music.genero }}</td>
         </tr>
         {% endfor %} <!-- E aqui fechamos o nosso laço -->
 
