@@ -21,13 +21,14 @@
         <tr>
             <td>Nome</td>
             <td>Sobrenome</td>
+            <td>Sexualidade</td>
         </tr>
 
         {% for name in nomes %}
         <tr>
-            <td>{{ name }}</td>
-            <td></td>
-            <td></td>
+            <td>{{ name.nome }}</td>
+            <td>{{ name.sobrenome }}</td>
+            <td>{{ name.sexualidade }}</td>
         </tr>
         {% endfor %}
 

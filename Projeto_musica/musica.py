@@ -1,5 +1,5 @@
 # Importando o flask para o projeto
-from flask import Flask,render_template, request
+from flask import Flask,render_template, request, redirect
 
 # Vamos criar uma classe em python:
 class Musica:
@@ -18,7 +18,7 @@ lista = [musica01, musica02, musica03]
 
 app = Flask(__name__)
 
-@app.route('/musicas')
+@app.route('/')
 def listarMusicas():
 
 
@@ -39,9 +39,7 @@ def adicionar_musica():
     novaMusica = Musica(nome, cantorBanda, genero)
 
     lista.append(novaMusica)
-    return render_template('lista_musicas.html',
-                           tiutlo = 'Apredendo do inicio com Daniel',
-                           musicas = lista)
+    return redirect('/')
 
 
 app.run(debug=True) # Agora o que for feito de alteração sera atualiazado automaticamente.
