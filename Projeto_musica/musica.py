@@ -64,7 +64,7 @@ def autenticar():
 
 @app.route('/sair')
 def sair_sessao():
-    session['usuaro_logado'] = None # Sessão finalizada!
+    session['usuario_logado'] = None # Sessão finalizada!
 
     return redirect('/')
 

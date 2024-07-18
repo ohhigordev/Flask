@@ -3,19 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastar Música</title>
+
+    <link rel="stylesheet" href="../static/bootstrap.css">
 </head>
 <body>
     <form method="post" action="/adicionar">
-        <label>Noma da Música:</label>
-        <input type="text" name="txtNome">
 
-        <label>Cantor / Grupo / Banda:</label>
-        <input type="text" name="txtCantor">
+        <fieldset>
+            <legend>Digite as informações da musica</legend>
 
-        <label>Genero:</label>
-        <input type="text" name="txtGenero">
+            <!-- Criando divisões para cada campo -->
+            <div class="mb-3">
+                <label for="txtNome">Nome da Música:</label>
+                <input type="text" name="txtNome" id="txtNome" class="form-control">
+            </div>
 
-        <button type="submit">Cadastrar</button>
+
+            <div class="mb-3">
+                <label for="txtCantor">Cantor / Grupo / Banda:</label>
+                <input type="text" name="txtCantor" id="txtCantor" class="form-control">
+            </div>
+
+
+            <div class="mb-3">
+                <label for="txtGenero">Genero:</label>
+                <input type="text" name="txtGenero" id="txtGenero" class="form-control">
+            </div>
+
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success">Cadastrar</button>
+            </div>
+        
+        </fieldset>
     </form>
   
 </body>

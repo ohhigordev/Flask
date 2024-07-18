@@ -3,36 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Lista de Música</title>
-    <style type="text/css">
 
-        table,td,th{
-            border: 1px solid black;
-        }
+    <link rel="stylesheet" href="../static/bootstrap.css">
 
-    </style>
 </head>
 <body>
-    <h2>Músicas cadastradas - {{ titulo }}</h2>
+    <div class="container">
 
-    <table>
+        <h2>Músicas cadastradas - {{ titulo }}</h2>
 
-        <tr>
-            <!-- O comando 'th' são apenas para células titulos -->
-            <th>Música</th>
-            <th>Cantor / Grupo / Banda</th>
-            <th>Gênero</th>
-        </tr>
+        <table class="table table-borderless table-hover table-striped">
 
-        {% for music in musicas %} <!-- Aqui comçamos um laço para adicionar as músicas ao HTML -->
-        <tr>
-            <!-- Já o comando 'td' são usados para células com dados normais -->
-            <td>{{ music.nome}}</td>
-            <td>{{ music.cantorBanda }}</td>
-            <td>{{ music.genero }}</td>
-        </tr>
-        {% endfor %} <!-- E aqui fechamos o nosso laço -->
+            <thead class="table-dark">
+                <tr>
+                    <!-- O comando 'th' são apenas para células titulos -->
+                    <th>Música</th>
+                    <th>Cantor / Grupo / Banda</th>
+                    <th>Gênero</th>
+                </tr>
+            </thead>
 
-    </table>
-    
+
+            <tbody>
+            {% for music in musicas %} <!-- Aqui comçamos um laço para adicionar as músicas ao HTML -->
+                <tr>
+                    <!-- Já o comando 'td' são usados para células com dados normais -->
+                    <td>{{ music.nome}}</td>
+                    <td>{{ music.cantorBanda }}</td>
+                    <td>{{ music.genero }}</td>
+                </tr>
+            {% endfor %} <!-- E aqui fechamos o nosso laço -->
+            </tbody>
+
+        </table>
+    </div>
 </body>
 </html>
