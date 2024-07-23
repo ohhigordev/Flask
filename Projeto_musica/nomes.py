@@ -19,7 +19,7 @@ app = Flask(__name__)
 app.secret_key = 'pindoretama'
 
 # Vamos criar uma rota para a nossa pagina web
-@app.route('/nomes')
+@app.route('/')
 def ListarNomes():
 
     
@@ -60,7 +60,7 @@ def autenticar_nomes():
     if request.form['txtSenha'] == 'admin':
         # Aqui foi criada uma sessão em particular para o usuário:
         session['usuário_logado'] = request.form['txtLogin']
-        return redirect('/nomes') # Redirecionar para a página inicial
+        return redirect('/') # Redirecionar para a página inicial
     
     else:
         return redirect('/loginNomes')

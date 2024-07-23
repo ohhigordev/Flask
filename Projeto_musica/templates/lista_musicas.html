@@ -1,41 +1,28 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Lista de Música</title>
+{% extends "padrao.html" %}
 
-    <link rel="stylesheet" href="../static/bootstrap.css">
+{% block conteudo %}
+<table class="table table-borderless table-hover table-striped">
 
-</head>
-<body>
-    <div class="container">
-
-        <h2>Músicas cadastradas - {{ titulo }}</h2>
-
-        <table class="table table-borderless table-hover table-striped">
-
-            <thead class="table-dark">
-                <tr>
-                    <!-- O comando 'th' são apenas para células titulos -->
-                    <th>Música</th>
-                    <th>Cantor / Grupo / Banda</th>
-                    <th>Gênero</th>
-                </tr>
-            </thead>
+    <thead class="table-dark">
+        <tr>
+            <!-- O comando 'th' são apenas para células titulos -->
+            <th>Música</th>
+            <th>Cantor / Grupo / Banda</th>
+            <th>Gênero</th>
+        </tr>
+    </thead>
 
 
-            <tbody>
-            {% for music in musicas %} <!-- Aqui comçamos um laço para adicionar as músicas ao HTML -->
-                <tr>
-                    <!-- Já o comando 'td' são usados para células com dados normais -->
-                    <td>{{ music.nome}}</td>
-                    <td>{{ music.cantorBanda }}</td>
-                    <td>{{ music.genero }}</td>
-                </tr>
-            {% endfor %} <!-- E aqui fechamos o nosso laço -->
-            </tbody>
+    <tbody>
+    {% for music in musicas %} <!-- Aqui comçamos um laço para adicionar as músicas ao HTML -->
+        <tr>
+            <!-- Já o comando 'td' são usados para células com dados normais -->
+            <td>{{ music.nome}}</td>
+            <td>{{ music.cantorBanda }}</td>
+            <td>{{ music.genero }}</td>
+        </tr>
+    {% endfor %} <!-- E aqui fechamos o nosso laço -->
+    </tbody>
 
-        </table>
-    </div>
-</body>
-</html>
+</table>
+{% endblock %}

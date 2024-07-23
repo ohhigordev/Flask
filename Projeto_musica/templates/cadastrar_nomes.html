@@ -4,20 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Nomes</title>
+    <link rel="stylesheet" href="../static/bootstrap.css">
 </head>
 <body>
     <form method="post" action="/adicionar">
 
-        <label>Primeiro nome:</label>
-        <input type="text" name = "txtPrimeiroNome">
+        <div class="mb-3">
+            <label for="txtPrimeiroNome">Primeiro nome:</label>
+            <input type="text" name="txtPrimeiroNome" id="txtPrimeiroNome" class="form-control">
+        </div>
 
-        <label>Sobrenome:</label>
-        <input type="text" name="txtSobrenome">
+        <div class="mb-3">
+            <label for="txtSobrenome">Sobrenome:</label>
+            <input type="text" name="txtSobrenome" id="txtSobrenome" class="form-control">
+        </div>
 
-        <label>Genero</label>
-        <input type="text" name="txtGenero">
+        <div class="mb-3">
+            <label for="txtGenero">Genero</label>
+            <input type="text" name="txtGenero" id="txtGenero" class="form-control">
+        </div>
 
-        <button type="submit">Cadastrar Nome</button>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Cadastrar Nome</button>
+        </div>
 
     </form>
 

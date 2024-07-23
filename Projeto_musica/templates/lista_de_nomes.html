@@ -4,37 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de nomes</title>
-
-    
-    <style type="text/css">
-        table,td,th{
-            border: 1px, solid, black;
-        }
-
-    </style>
+    <link rel="stylesheet" href="../static/bootstrap.css">
 
 </head>
 <body>
-<!-- Esse programa foi feito por mim com base nos ensinamentos do curso -->
-    <h2>Lista de nomes</h2>
-
-    <table>
-
-        <tr>
-            <td>Nome</td>
-            <td>Sobrenome</td>
-            <td>Sexualidade</td>
-        </tr>
-
-        {% for name in nomes %}
-        <tr>
-            <td>{{ name.nome }}</td>
-            <td>{{ name.sobrenome }}</td>
-            <td>{{ name.sexualidade }}</td>
-        </tr>
-        {% endfor %}
-
-    </table>
-    
+    <div class="container">
+        <!-- Esse programa foi feito por mim com base nos ensinamentos do curso -->
+            <h2>Lista de nomes</h2>
+        
+            <table class="table table-borderless table-hover table-striped">
+        
+                <thead class="table-dark">
+                    <tr>
+                        <td>Nome</td>
+                        <td>Sobrenome</td>
+                        <td>Sexualidade</td>
+                    </tr>
+                </thead>
+        
+                <tbody>
+                    {% for name in nomes %}
+                    <tr>
+                        <td>{{ name.nome }}</td>
+                        <td>{{ name.sobrenome }}</td>
+                        <td>{{ name.sexualidade }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+        
+            </table>
+        
+    </div>
 </body>
 </html>

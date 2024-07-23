@@ -66,7 +66,7 @@ def autenticar():
 def sair_sessao():
     session['usuario_logado'] = None # Sessão finalizada!
 
-    return redirect('/')
+    return redirect('/login')
 
 
 app.run(debug=True) 
