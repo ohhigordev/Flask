@@ -6,29 +6,23 @@
     <link rel="stylesheet" href="../static/bootstrap.css">
 </head>
 <body>
-    <form method="post" action="/autenticar">
-
-        <fieldset>
-
-
-            <div class="mb-3">
-                <label for="txtLogin">Login</label>
-                <input type="text" name="txtLogin" id="txtLogin" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <label for="txtSenha">Senha</label>
-                <input type="password" name="txtSenha" id="txtSenha" class="form-control">
-            </div>
-
-            <div class="mb-3">
-                <button type="submit" class="btn btn-success">Logar</button>
-            </div>
-
-        </fieldset>
-
-
-    </form>
+    <div class="container">
+        <form method="post" action="/autenticar">
+            <fieldset>
+                <div class="mb-3">
+                    <label for="txtLogin">Login</label>
+                    <input type="text" name="txtLogin" id="txtLogin" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="txtSenha">Senha</label>
+                    <input type="password" name="txtSenha" id="txtSenha" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-success">Logar</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
 
 
 
