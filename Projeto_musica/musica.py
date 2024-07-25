@@ -1,5 +1,5 @@
 # Importando o flask para o projeto
-from flask import Flask,render_template, request, redirect, session
+from flask import Flask,render_template, request, redirect, session, flash, url_for
 
 # Vamos criar uma classe em python:
 class Musica:
@@ -42,7 +42,7 @@ def adicionar_musica():
     novaMusica = Musica(nome, cantorBanda, genero)
 
     lista.append(novaMusica)
-    return redirect('/')
+    return redirect(url_for('listarMusicas'))
 
 # Criando a rota para a tela de login:
 @app.route('/login')
@@ -56,11 +56,14 @@ def autenticar():
 
         # Aqui foi criada uma sessão apenas para um usuário em particular!
         session['usuario_logado'] = request.form['txtLogin']
-        
-        return redirect('/')
+
+        flash('Usuário logado!')
+
+        return redirect(url_for('listarMusicas'))
 
     else:
-        return redirect('/login')
+        flash('Usuário ou senha invalida!')
+        return redirect(url_for('login'))
     
 
 @app.route('/sair')
