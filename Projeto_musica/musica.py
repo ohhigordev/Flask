@@ -14,6 +14,25 @@ musica03 = Musica('Camisa 10', 'Turma do Pagode', 'Pagode')
 
 lista = [musica01, musica02, musica03]
 
+# Criando a classe de usuário:
+class Usuario:
+    def __init__(self,  nome, login, senha):
+        self.nome = nome
+        self.login = login
+        self.senha = senha
+
+# Adicionando usuários a classe:
+usuario01 = Usuario('Higor Freitas', 'Ohhigordev007', 'admin')
+usuario02 = Usuario('Nicole Lima', 'Ahnicole1223', '1234')
+usuario03 = Usuario('Pedro Jose', 'Pedrojose004', '1234567')
+
+
+# Trablhando com dicionarios:
+usuarios = {
+    usuario01.login: usuario01,
+    usuario02.login: usuario02,
+    usuario03.login: usuario03
+}
 
 
 app = Flask(__name__)
@@ -23,6 +42,10 @@ app.secret_key = 'pindoretama'
 @app.route('/')
 def listarMusicas():
 
+    if session['usuario_logado'] == None or 'usuario_logado' not in session:
+        return redirect(url_for('login'))
+
+
 
     return render_template('lista_musicas.html', 
                            titulo = 'Músicas Cadastradas',
@@ -30,6 +53,10 @@ def listarMusicas():
 
 @app.route('/cadastrar')
 def cadastrar_musica():
+
+    if session['usuario_logado'] == None or 'usuario_logado' not in session:
+        return redirect(url_for('login'))
+
     return render_template('cadastra_musica.html',
                            titulo = "Cadastrar Música")
 
@@ -52,14 +79,23 @@ def login():
 # Valindando o usuário:
 @app.route('/autenticar', methods = ['POST',])
 def autenticar():
-    if request.form['txtSenha'] == 'admin':
+    if request.form['txtLogin'] in usuarios:
 
-        # Aqui foi criada uma sessão apenas para um usuário em particular!
-        session['usuario_logado'] = request.form['txtLogin']
+        usuarioEncontrado = usuarios[request.form['txtLogin']]
 
-        flash('Usuário logado!')
+        if request.form['txtSenha'] == usuarioEncontrado.senha:
 
-        return redirect(url_for('listarMusicas'))
+            # Aqui foi criada uma sessão apenas para um usuário em particular!
+            session['usuario_logado'] = request.form['txtLogin']
+
+            flash(f'Usuário {usuarioEncontrado.login} logado!')
+
+            return redirect(url_for('listarMusicas'))
+        
+        else:
+            flash('Senha inválida!')
+
+            return redirect(url_for('login'))
 
     else:
         flash('Usuário ou senha invalida!')
